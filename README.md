@@ -13,7 +13,9 @@ Requires `matplotlib>=3.4` and `numpy>=1.21`.
 
 ## Install
 
-```pip install ggseg```
+Install **THIS** (Nok's) version of ggseg-python:
+
+```pip install git+https://github.com/srisaikaewP/python-ggseg.git#main``` 
 
 ## Usage
 
