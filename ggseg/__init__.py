@@ -109,7 +109,7 @@ def _get_cmap_(cmap, values, vminmax=[]):
 
 
 def plot_dk(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
-             figsize=(15, 15), bordercolor='w', vminmax=[], title='',
+             figsize=(15, 15), bordercolor='w', nacolor='gray', vminmax=[], title='',
              fontsize=15):
     """Plot cortical ROI data based on a Desikan-Killiany (DK) parcellation.
 
@@ -128,6 +128,7 @@ def plot_dk(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     background : matplotlib color, if not provided, defaults to black
     edgecolor : matplotlib color, if not provided, defaults to white
     bordercolor : matplotlib color, if not provided, defaults to white
+    nacolor : matplotlib color, if not provided, defaults to gray
     ylabel : str, optional
             Label to display next to the colorbar
     figsize : list, optional
@@ -169,7 +170,7 @@ def plot_dk(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     dkt_regions = [op.splitext(op.basename(e))[0] for e in reg]
     NA = set(dkt_regions).difference(data_regions).difference(whole_reg)
     files = [open(op.join(wd, e)).read() for e in NA]
-    _render_regions_(files, ax, 'gray', edgecolor)
+    _render_regions_(files, ax, nacolor, edgecolor)
 
     # A colorbar is added
     _add_colorbar_(ax, cmap, norm, edgecolor, fontsize*0.75, ylabel)
@@ -180,7 +181,7 @@ def plot_dk(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
 
 
 def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
-             figsize=(17, 5), bordercolor='w', vminmax=[], title='',
+             figsize=(17, 5), bordercolor='w', nacolor='gray', vminmax=[], title='',
              fontsize=15):
     """Plot WM ROI data based on the Johns Hopkins University (JHU) white
     matter atlas.
@@ -200,6 +201,7 @@ def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     background : matplotlib color, if not provided, defaults to black
     edgecolor : matplotlib color, if not provided, defaults to white
     bordercolor : matplotlib color, if not provided, defaults to white
+    nacolor : matplotlib color, if not provided, defaults to gray
     ylabel : str, optional
             Label to display next to the colorbar
     figsize : list, optional
@@ -239,7 +241,7 @@ def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     # JHU regions with no provided values are rendered in gray
     NA = ['CSF']
     files = [open(op.join(wd, e)).read() for e in NA]
-    _render_regions_(files, ax, 'gray', edgecolor)
+    _render_regions_(files, ax, nacolor, edgecolor)
 
     # A colorbar is added
     _add_colorbar_(ax, cmap, norm, edgecolor, fontsize*0.75, ylabel)
@@ -250,7 +252,7 @@ def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
 
 
 def plot_aseg(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
-              figsize=(15, 5), bordercolor='w', vminmax=[],
+              figsize=(15, 5), bordercolor='w', nacolor='#111111', vminmax=[],
               title='', fontsize=15):
     """Plot subcortical ROI data based on the FreeSurfer `aseg` atlas
 
@@ -268,6 +270,7 @@ def plot_aseg(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     background : matplotlib color, if not provided, defaults to black
     edgecolor : matplotlib color, if not provided, defaults to white
     bordercolor : matplotlib color, if not provided, defaults to white
+    nacolor : matplotlib color, if not provided, defaults to '#111111'
     ylabel : str, optional
             Label to display next to the colorbar
     figsize : list, optional
@@ -314,7 +317,7 @@ def plot_aseg(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     # The following regions are ignored/displayed in gray
     NA = ['Cerebellum-Cortex', 'Cerebellum-White-Matter', 'Brain-Stem']
     files = [open(op.join(wd, e)).read() for e in NA]
-    _render_regions_(files, ax, '#111111', edgecolor)
+    _render_regions_(files, ax, nacolor, edgecolor)
 
     # A colorbar is added
     _add_colorbar_(ax, cmap, norm, edgecolor, fontsize*0.75, ylabel)
