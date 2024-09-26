@@ -17,6 +17,11 @@ Install **THIS** (Nok's) version of ggseg-python:
 
 ```pip install git+https://github.com/srisaikaewP/python-ggseg.git#main``` 
 
+**or** within a jupyter notebook:
+
+```!pip install git+https://github.com/srisaikaewP/python-ggseg.git#main``` 
+
+
 ## Usage
 
 In order to work with `python-ggseg`, the data should be prepared as a
