@@ -136,6 +136,10 @@ def plot_dk(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
             Title displayed above the figure, passed to matplotlib.axes.Axes.set_title
     fontsize: int, optional
             Relative font size for all elements (ticks, labels, title)
+
+    Returns
+    -------
+    ax : Axes
     """
     import matplotlib.pyplot as plt
     import os.path as op
@@ -172,6 +176,8 @@ def plot_dk(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
 
     plt.show()
 
+    return ax
+
 
 def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
              figsize=(17, 5), bordercolor='w', vminmax=[], title='',
@@ -202,6 +208,10 @@ def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
             Title displayed above the figure, passed to matplotlib.axes.Axes.set_title
     fontsize: int, optional
             Relative font size for all elements (ticks, labels, title)
+
+    Returns
+    -------
+    ax : Axes
     """
 
     import matplotlib.pyplot as plt
@@ -236,6 +246,8 @@ def plot_jhu(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
 
     plt.show()
 
+    return ax
+
 
 def plot_aseg(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
               figsize=(15, 5), bordercolor='w', vminmax=[],
@@ -264,6 +276,10 @@ def plot_aseg(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
             Title displayed above the figure, passed to matplotlib.axes.Axes.set_title
     fontsize: int, optional
             Relative font size for all elements (ticks, labels, title)
+
+    Returns
+    -------
+    ax : Axes
     """
     import matplotlib.pyplot as plt
     import os.path as op
@@ -304,3 +320,5 @@ def plot_aseg(data, cmap='Spectral', background='k', edgecolor='w', ylabel='',
     _add_colorbar_(ax, cmap, norm, edgecolor, fontsize*0.75, ylabel)
 
     plt.show()
+
+    return ax
